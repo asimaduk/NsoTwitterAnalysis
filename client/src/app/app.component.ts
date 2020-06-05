@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+  navLinks = [{label: 'Query',path:'/query'},{label: 'Groups',path:'/groups'},{label: 'Feeds',path:'/feeds'},{label: 'Rules & Alerts',path:'/rules-and-alerts'},{label: 'Users',path:'/users'}];
+  activeLink = this.navLinks[0].path;
 }

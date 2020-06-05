@@ -25,7 +25,12 @@ export class Server {
     this.app.use("/api/user",(req, res) => {
       console.log('user request made');
       
-      res.status(200).json({name: 'Kingsford Asimadu'})
+      res.status(200).json({
+        name: 'Kingsford Asimadu', 
+        username: 'asimaduk', 
+        description: 'Loves to code a lot, awaiting greatness!',
+        avatar: 'https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png'
+      })
     });
   }
 
