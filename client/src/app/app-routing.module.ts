@@ -1,10 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationActivateGuard } from './modules/shared/auth/authenticationActivateGuard';
+import {QueryComponent} from './modules/query/query.component';
+import {FeedComponent} from './modules/feed/feed.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'query',
+    // canActivate: [AuthenticationActivateGuard],
+    component: QueryComponent
+  },
+  {
+    path: 'groups',
+    // canActivate: [AuthenticationActivateGuard],
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'feeds',
+    // canActivate: [AuthenticationActivateGuard],
+    component: FeedComponent
+  },
+  {
+    path: 'rules-and-alerts',
+    // canActivate: [AuthenticationActivateGuard],
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'user-management',
     // canActivate: [AuthenticationActivateGuard],
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
   },
@@ -14,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: '', 
-    redirectTo: '/home', 
+    redirectTo: '/query', 
     pathMatch: 'full'
   }
 ];

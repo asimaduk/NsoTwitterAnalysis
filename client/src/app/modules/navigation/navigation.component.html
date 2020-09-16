@@ -1,0 +1,38 @@
+<div class="header">
+    <div class="logo-cover">
+        <div class="logo">
+            <img src="https://storage.googleapis.com/blogs-images/ciscoblogs/1/2020/04/f3bc2eea-nso-logo.png" alt="">
+        </div>
+    </div>
+    <ul>
+        <li (click)="navigate('/query')">
+            <div [ngClass]="{'active': currentRoute === '/query'}" class="a-cover">
+                <a [ngClass]="{'active': currentRoute === '/query'}" routerLink="query">Query</a>
+            </div>
+        </li>
+        <li (click)="navigate('/groups')">
+            <div [ngClass]="{'active': currentRoute === '/groups'}" class="a-cover">
+                <a [ngClass]="{'active': currentRoute === '/groups'}" routerLink="groups">Groups</a>
+            </div>
+        </li>
+        <li (click)="navigate('/feeds')">
+            <div [ngClass]="{'active': currentRoute === '/feeds'}" class="a-cover">
+                <a [ngClass]="{'active': currentRoute === '/feeds'}" routerLink="feeds">Feeds</a>
+            </div>
+        </li>
+        <li (click)="navigate('/rules-and-alerts')">
+            <div [ngClass]="{'active': currentRoute === '/rules-and-alerts'}" class="a-cover">
+                <a [ngClass]="{'active': currentRoute === '/rules-and-alerts'}" routerLink="rules-and-alerts">Rules & Alerts</a>
+            </div>
+        </li>
+        <li (click)="navigate('/user-management')">
+            <div [ngClass]="{'active': currentRoute === '/user-management'}" class="a-cover">
+                <a [ngClass]="{'active': currentRoute === '/user-management'}" routerLink="user-management">User Management</a>
+            </div>
+        </li>
+    </ul>
+    <div class="user-profile">
+        <img src="https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg" class="avatar" alt=""/>
+        <span class="user-name">Kingsford</span>
+    </div>
+</div>

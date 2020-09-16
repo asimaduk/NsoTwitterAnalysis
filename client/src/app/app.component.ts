@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
   selector: 'app-root',
   template: `
     <div>
+      <app-nav></app-nav>
       <router-outlet></router-outlet>
     </div>
   `,

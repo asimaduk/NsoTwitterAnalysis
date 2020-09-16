@@ -7,13 +7,15 @@ import { HttpClientModule } from "@angular/common/http";
 // import { DeviceDetectorService } from "ngx-device-detector";
 // import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, LinkedinLoginProvider } from "angular-6-social-login-v2";
 import {CommonModule} from "@angular/common";
+import {NavigationComponent} from './modules/navigation/navigation.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
