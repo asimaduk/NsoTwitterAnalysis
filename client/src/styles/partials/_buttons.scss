@@ -1,0 +1,57 @@
+@import 'mixin';
+
+button {
+  &:focus {
+    outline: none;
+    border: 0;
+  }
+}
+
+// skkiper button
+.btn {
+  &.skkiper-btn {
+    color: #fff;
+    background-color: $mainBlue;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: $MFont;
+  }
+  &.sell-business {
+    font-size: 12px;
+    font-family: $MFont;
+    color: $mainBlue;
+    background-color: transparent;
+    border-color: $mainBlue;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 160px;
+  }
+  &.btn-clear {
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+// action buttons
+.action-items {
+  @include display-flex(space-between, center);
+  width: 60px;
+  .btn {
+    @include display-flex(center, center);
+    width: 27px;
+    height: 27px;
+    color: $mainBlue;
+    background-color: $Lgrey2;
+    padding: 0;
+    border: 0;
+  }
+}
+
+.btn {
+  &.edit-btn {
+    //@include round-button(20px, $purpleLink);
+    color: #59A5D8;
+    font-size: 13px;
+    background-color: white;
+  }
+}

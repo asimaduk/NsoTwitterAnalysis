@@ -1,0 +1,406 @@
+/* global onboarding styles*/
+#onboarding .form-control {
+  border-radius: 0;
+}
+
+#onboarding input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#onboarding input::placeholder {
+  color: rgba(255, 255, 255, .5);
+}
+
+#onboarding ._done {
+  border-bottom: 2px solid rgb(255, 255, 255) !important;
+  opacity: 1 !important;
+}
+
+#onboarding app-generic-input:not(:first-child) {
+  margin-left: 1em;
+}
+
+#onboarding input[type=number]::-webkit-inner-spin-button,
+#onboarding input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#onboarding input[type="number"] {
+  max-width: 120px;
+}
+
+#onboarding .input-group-text {
+  font-size: 1.5em;
+  margin-right: 1px;
+}
+
+#onboarding float-input input {
+  border-radius: 0;
+  text-align: center;
+}
+
+.input-group-text {
+  border-radius: 0;
+}
+
+#onboarding .ui-corner-all {
+  border-radius: 0;
+}
+
+/* end of global onboarding styles*/
+
+/* currency input -------------------------------------*/
+#onboarding input, #onboarding currency-input span {
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgb(255, 255, 255); /*old browsers */
+  border-bottom: 2px solid rgba(255, 255, 255, .5);
+}
+
+/* end of currency input -------------------------------*/
+
+/* mask input -------------------------------------*/
+#onboarding ._mask {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, .5);
+  text-align: center;
+  opacity: 0.5;
+  color: #fff;
+  font-size: 2em;
+  margin: 0 0 0 0.2em;
+  padding: 0;
+}
+
+#onboarding ._mask::placeholder {
+  color: rgba(255, 255, 255, .5)
+}
+
+#onboarding ._mask:focus {
+  box-shadow: none;
+}
+
+#onboarding mask-input {
+  display: inline-block;
+}
+
+#onboarding .inline-generic {
+  display: inline-block;
+}
+
+/* end of mask input --------------------------------*/
+
+/* text input ----------------------------------------*/
+#onboarding ._text {
+  font-size: 1.7em;
+  height: 40px;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid rgb(255, 255, 255); /*old browsers */
+  border-bottom: 2px solid rgba(255, 255, 255, .5);
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+/* end of text input ----------------------------------*/
+
+/* dropdown input ---------------------------------------------*/
+#onboarding .ui-dropdown {
+  max-width: 500px;
+}
+
+#onboarding .ui-dropdown-items-wrapper {
+  font-size: 0.8em !important;
+}
+
+#onboarding .ui-widget-content {
+  max-width: 500px;
+}
+
+#onboarding .select-container {
+  border: 2px solid #3C4DCB;
+}
+
+/*
+#onboarding option {
+  background-color: #3C4DCB;
+  padding-left: 3px;
+}
+
+#onboarding option:hover {
+  background-color: #3C4DCBCC;
+} */
+#onboarding select-input .ui-widget {
+  font-size: 1.2em;
+}
+
+#onboarding p-dropdown i {
+  border: none;
+  color: #fff;
+  opacity: 0.5;
+  right: 0;
+}
+
+#onboarding .ui-dropdown, #onboarding .ui-dropdown-label, #onboarding .ui-dropdown-trigger {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+}
+
+#onboarding .ui-dropdown-trigger {
+  opacity: 0.5;
+}
+
+#onboarding .selected .ui-dropdown-trigger {
+  opacity: 1;
+}
+
+#onboarding .ui-dropdown-label {
+  border: none;
+  border-bottom: 2px solid #fff;
+  opacity: 0.5;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#onboarding .selected .ui-dropdown-label, #onboarding .selected .ui-dropdown-label {
+  opacity: 1;
+}
+
+#onboarding .ui-dropdown-label:focus, #onboarding .ui-dropdown.ui-widget:focus,
+#onboarding .ui-dropdown-panel.ui-widget-content, #onboarding ._select {
+  box-shadow: none;
+  outline: none;
+}
+
+#onboarding .ui-dropdown-items {
+  background-color: #3C4DCB;
+  color: #fff;
+}
+
+#onboarding .ui-dropdown-list {
+  padding: .4em 0 0 0;
+}
+
+#onboarding .ui-dropdown-panel.ui-widget-content {
+  border: none;
+  background: transparent;
+}
+
+#onboarding .fa-caret-down:before {
+  content: "\f078"
+}
+
+#onboarding .ui-dropdown-item:hover {
+  color: #fff;
+  background-color: #4E5FE4CC;
+}
+
+#onboarding ._select-p:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#onboarding ._select-p {
+  text-align: left;
+}
+
+#onboarding .option, #onboarding ._select .ui-placeholder {
+  font-family: Open sans-serif;
+  font-size: 1.2em;
+  text-align: left;
+}
+
+/* end of dropdown input ---------------------------------------------*/
+
+#onboarding percentage-input span {
+  background-color: transparent;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+
+/* multiUpload ------------------------------------*/
+#multi-upload .scope-events {
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#multi-upload .file-name {
+  width: 65%;
+  margin: 0 3px;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#multi-upload .but-d {
+  padding: 3px;
+  border-radius: 4px;
+}
+
+#multi-upload .center {
+  text-align: center;
+}
+
+#multi-upload .btn-primary {
+  border-radius: 7px;
+  background-color: #008cba;
+  border: none;
+  margin-bottom: 5px;
+}
+
+#multi-upload .padd-t-5 {
+  padding-top: 5px;
+}
+
+#multi-upload .flie-info {
+  margin-top: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+#multi-upload .flie-info:hover {
+  opacity: 0.8;
+}
+
+#multi-upload .component {
+  position: relative;
+  width: 100%;
+  min-width: 200px;
+}
+
+#multi-upload .ui-fileupload-content.ui-widget-content.ui-corner-bottom {
+  padding: 0;
+  border: 0;
+}
+
+#multi-upload .ui-fileupload-files.ng-star-inserted {
+  padding: 0.7em;
+}
+
+#multi-upload .ui-widget-header {
+  border: 0;
+  background: #74b9ff;
+  text-align: center;
+}
+
+#multi-upload .ui-fileupload-content.ui-widget-content.ui-corner-bottom {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#multi-upload .arrow_box {
+  width: 100%;
+  position: absolute;
+  top: -80px;
+  left: 0;
+  max-height: 200px;
+  margin-bottom: 25px;
+  background: #74b9ff;
+  border: 2px solid #c2e1f5;
+  padding: 5px;
+  animation: slideInFromBottom .5s;
+  transition: all .5s ease;
+}
+
+#multi-upload .arrow_box:hover {
+  width: calc(100% + 200px);
+  left: -100px;
+  top: -100px;
+  transform: scale(1.5);
+}
+
+#multi-upload .arrow_box:after, .arrow_box:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+#multi-upload .arrow_box:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #74b9ff;
+  border-width: 20px;
+  margin-left: -20px;
+}
+
+#multi-upload .arrow_box:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-top-color: #c2e1f5;
+  border-width: 24px;
+  margin-left: -24px;
+}
+
+#multi-upload .ui-state-disabled {
+  display: none;
+}
+
+#multi-upload .thumbnail {
+  max-width: 30%;
+  max-height: 30px;
+}
+
+/* end of multiUpload ------------------------------------*/
+
+/* autocomplete input ------------------------------------*/
+.autocomplete {
+  font-family: Open sans-serif!important;
+}
+
+.autocomplete input{
+  font-family: 'Playfair Display', serif;
+  font-size: 135%;
+}
+
+.autocomplete .ui-shadow {
+  box-shadow:none;
+  -webkit-box-shadow:none;
+}
+
+.autocomplete li {
+  padding:0.7em!important;
+}
+
+/*
+.autocomplete .ui-state-highlight {
+  background-color:#f00;!*a09fea*!
+}
+*/
+.ui-dropdown .ui-state-highlight {
+  background-color:rgba(78,95,228,0.5) !important;
+}
+
+.autocomplete .ui-widget-content {
+  background-color:transparent;
+}
+
+#onboarding .ui-autocomplete-list {
+  background-color: #3C4DCB;
+  color: #FFF;
+  padding: 0;
+}
+
+#onboarding .ui-autocomplete-panel {
+  top: 50px;
+  border: none;
+}
+
+#onboarding .ui-autocomplete-list-item:hover, #onboarding .autocomplete-listItem:hover {
+  background-color: rgba(78,95,228,0.8) !important; /*#a09fea*/
+
+}
+
+/* end of autocomplete input ------------------------------*/
+

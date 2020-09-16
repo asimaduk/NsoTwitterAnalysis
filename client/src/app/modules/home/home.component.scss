@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    // background-color: darkgoldenrod;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #eee;
+    height: 48px;
+    margin-left: 10px;
+}
+.user-profile {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #eee;
+    margin-right: 10px;
+}
+::ng-deep .mat-tab-header {
+    
+}
+::ng-deep .mat-tab-body-wrapper {
+    margin-top: 20px;
+}
+::ng-deep .mat-tab-label-active{
+    color: darkmagenta;
+    border-bottom-color: darkmagenta;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}

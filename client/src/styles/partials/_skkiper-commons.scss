@@ -1,0 +1,892 @@
+@import "mixin";
+// used for common mixin classes
+
+// business types
+@mixin business-types() {
+  $imageRadius: 7px;
+  @include display-flex(unset, center);
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  min-height: 71px;
+  position: relative;
+  background: $Lgrey8;
+  cursor: pointer;
+  @include small-screens {
+    flex-direction: column;
+    background-color: transparent;
+    box-shadow: $skkiper-box-shadow;
+  }
+  .type-name {
+    @include font-size(14px);
+    font-family: $MFont;
+    font-weight: bold;
+    @include small-screens {
+      @include font-size(12px);
+      margin-top: 10px;
+    }
+  }
+  &.selected {
+    background: #fff;
+    border: 2px solid $mainBlue;
+    .active-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      background: $mainBlue;
+      border: 4px solid #fff;
+      box-shadow: 0 0 5px 5px rgba(221, 221, 221, 1);
+    }
+    img {
+      height: 99%;
+    }
+  }
+  .business-type-image {
+    margin-right: 10px;
+    border-top-left-radius: $imageRadius;
+    border-bottom-left-radius: $imageRadius;
+    max-width: 80px;
+    min-width: 80px;
+    @include small-screens {
+      margin: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: $imageRadius;
+      max-width: unset;
+      min-width: unset;
+      max-height: 40px;
+    }
+  }
+  &.type1 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  &.type2 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  &.type3 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  &.type4 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  &.type5 {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  &.type6 {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+}
+
+@mixin data-room-wrapper {
+  height: 100%;
+  padding: 25px 40px;
+  @include display-flex(unset, unset, column);
+  @include small-screens {
+    padding: 10px 10px;
+  }
+  .data-room-heading {
+    margin: 20px 0;
+    color: $blue4;
+
+    h2 {
+      @include font-size(18px);
+      font-family: $MFont;
+      font-weight: 700;
+      color: $blue4;
+    }
+  }
+  .data-room-breadcrumb {
+    display: flex;
+    margin: 20px 0;
+    @include font-size(14px);
+    font-family: $MFont;
+    font-weight: 500;
+    color: $Grey2;
+    .item {
+      align-items: center;
+      display: flex;
+      cursor: pointer;
+    }
+    .active {
+      color: $mainBlue;
+      cursor: default;
+    }
+    .crumb {
+      padding-right: 20px;
+    }
+  }
+}
+
+// page wrapper, used in home, about etc...
+@mixin page-wrapper() {
+  position: relative;
+  @include display-flex(space-between, unset, column);
+  width: 100%;
+  height: calc(100vh);
+  -webkit-overflow-scrolling: touch;
+  @include small-screens {
+    position: absolute;
+    top: 0;
+  }
+}
+
+// promo-wrapper - used on home page, about, etc...
+@mixin promo-wrapper() {
+  width: 100%;
+  position: relative;
+  z-index: 0;
+
+  .top-section {
+    .container {
+      position: relative;
+      z-index: 1;
+      &.promo {
+        bottom: -75px;
+        @include tablet-view-screens {
+          @include display-flex(unset, center, column);
+          bottom: 0;
+        }
+        .text-wrapper {
+          @include display-flex(unset, center);
+          width: 98%;
+          height: 498px;
+          background: url("/assets/images/home/home-bg.png") no-repeat center;
+          background-size: cover;
+          @include tablet-view-screens {
+            width: 100%;
+          }
+          p {
+            color: #fff;
+            font-family: $MFont;
+            @include font-size(32px);
+            font-weight: bold;
+            line-height: 54px;
+            margin: 0 0 0 80px;
+          }
+        }
+        .video-wrapper {
+          position: absolute;
+          right: -60px;
+          bottom: -20px;
+          width: 678px;
+          height: 452px;
+          border-radius: 6px;
+          background: url("/assets/images/services/126.jpg") no-repeat center;
+          background-size: cover;
+          @include tablet-view-screens {
+            position: relative;
+            width: 100%;
+            right: unset;
+            bottom: unset;
+          }
+        }
+      }
+    }
+  }
+  .bottom-section {
+    position: relative;
+    background-color: $Lgrey8;
+    width: 100%;
+
+    .cards-wrapper {
+      @include display-flex(unset, center, column);
+      margin: 60px 15px 30px;
+      .home-card {
+        @include skkiper-box-container;
+        @include display-flex(space-between, center, column);
+        width: $homeCardWidth;
+        height: 385px;
+        padding: 30px;
+        margin-bottom: 20px;
+        @include small-screens {
+          width: 100%;
+        }
+
+        @include ipad-portrait {
+          width: 100%;
+        }
+
+        @include small-screens-landscape {
+          width: 100%;
+        }
+
+        .title-wrapper {
+          margin-top: 20px;
+          width: 100%;
+          span {
+            font-weight: bold;
+          }
+        }
+        .middle-card {
+          .currency {
+            @include font-size(50px);
+            color: $blue5;
+            font-weight: bold;
+            font-family: $MFont;
+          }
+          .trend-wrapper {
+            @include display-flex(center, center);
+            color: $secondaryBlue;
+            i {
+              font-size: 30px;
+              margin-right: 10px;
+            }
+            .trend {
+              @include font-size(24px);
+              font-weight: bold;
+            }
+          }
+        }
+        .text-wrapper {
+          text-align: center;
+          font-family: $RFont;
+          padding: 0;
+          .short-headline {
+            color: $Lblue2;
+            @include font-size(13px);
+            font-weight: bold;
+            letter-spacing: 0.33px;
+            line-height: 24px;
+          }
+          .text {
+            color: $Grey1;
+            @include font-size(14px);
+            font-weight: 500;
+            letter-spacing: 0.35px;
+            line-height: 24px;
+          }
+        }
+      }
+      &.left {
+        z-index: 2;
+      }
+      &.right {
+        margin-top: 150px;
+        margin-right: 5em;
+        @include small-screens {
+          margin-top: 0;
+          margin-right: 0;
+        }
+
+        @include ipad-portrait {
+          margin-top: 0;
+          margin-right: 0;
+        }
+
+        @include small-screens-landscape {
+          margin-top: 0;
+          margin-right: 0;
+        }
+      }
+    }
+
+    .sign-up {
+      @include display-flex(space-between, center);
+      @include skkiper-container;
+      padding-bottom: 10em;
+
+      @include small-screens {
+        flex-direction: column-reverse;
+      }
+
+      @include ipad-portrait {
+        flex-direction: column-reverse;
+      }
+
+      @include small-screens-landscape {
+        flex-direction: column-reverse;
+      }
+
+      &.with-margin {
+        margin: 0 auto 5em;
+        padding: 15em 0 0;
+        @include small-screens {
+          padding: 0;
+        }
+
+        @include ipad-portrait {
+          padding: 0;
+        }
+
+        @include small-screens-landscape {
+          padding: 0;
+        }
+      }
+      .text {
+        width: 48%;
+        @include rfs(460px, max-width);
+        color: $blue4;
+        font-family: $MFont;
+        @include font-size(42px);
+        letter-spacing: 0;
+        @include rfs(72px, line-height);
+        padding-left: 2%;
+
+        @include medium-laptop-screens {
+          @include font-size(34px);
+          line-height: 50px;
+        }
+
+        @include tablet-view-screens {
+          @include font-size(34px);
+          line-height: 36px;
+        }
+
+        @include small-screens {
+          width: 100vw;
+          max-width: unset;
+          padding: 2em 2em 0;
+          margin: 0;
+          @include font-size(28px);
+          line-height: 38px;
+        }
+
+        @include ipad-portrait {
+          width: 100vw;
+          max-width: unset;
+          padding: 2em 2em 0;
+          margin: 0;
+          @include font-size(24px);
+          @include rfs(38px, line-height);
+        }
+
+        @include small-screens-landscape {
+          width: 100vw;
+          max-width: unset;
+          padding: 2em 2em 0;
+          margin: 0;
+          @include font-size(24px);
+          @include rfs(38px, line-height);
+        }
+      }
+      .sign-up-wrapper {
+        width: 100%;
+        max-width: 50%;
+        position: relative;
+        z-index: 1;
+        height: $signUpFormHeight;
+
+        @include small-screens {
+          width: 100vw;
+          max-width: unset;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+
+        @include ipad-portrait {
+          width: 100vw;
+          max-width: unset;
+          height: 690px;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+
+        @include small-screens-landscape {
+          width: 100vw;
+          max-width: unset;
+          height: 690px;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+
+        early-sign-up-form {
+          width: 100%;
+          z-index: 2;
+          position: absolute;
+
+          @include small-screens {
+            margin-top: 2em;
+          }
+
+          @include ipad-portrait {
+            margin-top: 2em;
+          }
+
+          @include small-screens-landscape {
+            margin-top: 2em;
+          }
+        }
+        .oval-circle {
+          position: absolute;
+          left: -130px;
+          top: -108px;
+          z-index: 1;
+          width: 100%;
+          max-width: 248px;
+          @include small-screens {
+            top: 0;
+            left: auto;
+            right: -110px;
+          }
+
+          @include tablet-view-screens {
+            max-width: 170px;
+            left: -60px;
+            top: -90px;
+          }
+
+          @include ipad-portrait {
+            top: 0;
+            left: auto;
+            right: -110px;
+          }
+
+          @include small-screens-landscape {
+            top: 0;
+            left: auto;
+            right: -110px;
+          }
+        }
+      }
+    }
+    .animation-section {
+      @include display-flex(space-between, center);
+      @include small-screens {
+        flex-direction: column-reverse;
+      }
+
+      @include ipad-portrait {
+        flex-direction: column-reverse;
+      }
+
+      @include small-screens-landscape {
+        flex-direction: column-reverse;
+      }
+
+      .animation-wrapper {
+        @include display-flex(flex-start, center);
+        flex: 1;
+        max-width: 50%;
+        min-height: 458px;
+        @include small-screens {
+          max-width: unset;
+          min-height: unset;
+        }
+
+        @include ipad-portrait {
+          max-width: unset;
+          min-height: unset;
+        }
+
+        @include small-screens-landscape {
+          max-width: unset;
+          min-height: unset;
+        }
+      }
+      .text-wrapper {
+        width: 50%;
+        @include small-screens {
+          width: 100vw;
+          padding: 1em;
+        }
+
+        @include ipad-portrait {
+          width: 100vw;
+          padding: 1em;
+        }
+
+        @include small-screens-landscape {
+          width: 100vw;
+          padding: 1em;
+        }
+        .title {
+          max-width: 440px;
+          @include small-screens {
+            max-width: unset;
+          }
+
+          @include ipad-portrait {
+            max-width: unset;
+          }
+
+          @include small-screens-landscape {
+            max-width: unset;
+          }
+        }
+        p {
+          max-width: 440px;
+          @include small-screens {
+            max-width: unset;
+          }
+
+          @include ipad-portrait {
+            max-width: unset;
+          }
+
+          @include small-screens-landscape {
+            max-width: unset;
+          }
+        }
+      }
+    }
+  }
+  .text-wrapper {
+    @include display-flex(flex-end, flex-start, column);
+    padding: 1em;
+    .title {
+      @include font-size(28px);
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 36px;
+      margin-bottom: 1em;
+    }
+    p {
+      color: $Grey1;
+      @include font-size(18px);
+      font-weight: 500;
+      letter-spacing: 0.45px;
+      line-height: 28px;
+      @include small-screens {
+        @include font-size(13px);
+        line-height: 22px;
+      }
+    }
+    &.mobile-view {
+      padding: 1em;
+      margin-bottom: 8em;
+    }
+    &.home-old {
+      justify-content: center;
+      max-width: 330px;
+
+      .title {
+        color: $Lblue2;
+      }
+    }
+  }
+
+  .oval-circle {
+    @include tablet-view-screens {
+      max-width: 125px;
+    }
+
+    @include ipad-portrait {
+      display: none;
+    }
+
+    @include small-screens-landscape {
+      display: none;
+    }
+  }
+}
+
+// main image slider content
+@mixin main-image-slider-content() {
+  @include display-flex(center, flex-start, column);
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  .content {
+    @include display-flex(space-between, flex-start, column);
+    @include small-screens {
+      padding: 10%;
+    }
+  }
+  h2 {
+    @include font-size(42px);
+    font-weight: bold;
+    color: #fff;
+    line-height: 52px;
+    margin-bottom: 0.5em;
+    @include small-screens {
+      @include font-size(30px);
+    }
+  }
+  .skkiper-logo {
+    display: none;
+    @include font-size(24px);
+    font-weight: 500;
+    @include small-screens {
+      display: block;
+      color: #fff;
+      margin-top: 10px;
+    }
+  }
+  .hero-text {
+    @include font-size(18px);
+    color: #fff;
+    letter-spacing: 0.45px;
+    line-height: 35px;
+    @include small-screens {
+      display: none;
+    }
+    &.mini-site {
+      @include small-screens {
+        display: block;
+      }
+    }
+  }
+  .btn {
+    @include font-size(18px);
+    width: 324px;
+    height: 64px;
+    border-radius: 7.8px;
+    color: #fff;
+    font-weight: bold;
+    @include small-screens {
+      width: 100%;
+      height: 49px;
+      @include font-size(14px);
+      letter-spacing: -0.31px;
+      line-height: 18px;
+    }
+  }
+}
+
+@mixin skkiper-submit-forms-wrapper() {
+  width: 100%;
+  @include display-flex(unset, flex-start, column);
+  @include skkiper-box-container($signUpFormHeight, 25px);
+  box-shadow: $skkiper-box-shadow-2;
+  border-radius: 16px;
+  @include small-screens {
+    border-radius: 12px;
+    min-height: $signUpFormMobileHeight;
+  }
+  &.small-version {
+    min-height: auto;
+    height: 200px;
+  }
+  .header-wrapper {
+    margin: 2em 0;
+    @include display-flex(unset, flex-start, column);
+    .title {
+      @include font-size(32px);
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 48px;
+      @include small-screens {
+        @include font-size(24px);
+        line-height: 36px;
+      }
+    }
+    p {
+      color: $Grey1;
+      @include font-size(18px);
+      font-weight: 500;
+      letter-spacing: 0.45px;
+      line-height: 32px;
+      @include small-screens {
+        @include font-size(14px);
+        font-weight: bold;
+        letter-spacing: 0.35px;
+        line-height: 26px;
+      }
+    }
+  }
+  .sign-up-form {
+    width: 100%;
+    .input-wrapper {
+      width: 100%;
+      @include display-flex(unset, center);
+      position: relative;
+      margin-bottom: 10px;
+      input {
+        width: 100%;
+        height: 62px;
+        border: 1px solid $Lgrey5;
+        border-radius: 6px;
+        padding: 0 20px;
+        font-family: $MFont;
+        font-weight: bold;
+        margin-bottom: 1em;
+        @include font-size(16px);
+        @include small-screens {
+          height: 48px;
+        }
+        &::placeholder {
+          font-family: $RFont;
+          font-weight: 500;
+        }
+        &.ng-touched {
+          &.ng-invalid {
+            border-color: $mainRed;
+          }
+        }
+      }
+      .validated {
+        @include display-flex(center, center);
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        border: 1px solid $mainBlue;
+        color: $mainBlue;
+        @include small-screens {
+          top: 11px;
+        }
+        .skipper-icon {
+          font-size: 16px;
+        }
+      }
+      &.invalid {
+        @include display-flex(unset, unset, column);
+        .invalid-error {
+          color: $mainRed;
+          font-weight: bold;
+        }
+      }
+
+      .mat-form-field {
+        width: 100%;
+      }
+
+      &.business-type, &.email-small-version, &.full-name {
+        width: 60%;
+
+        @include small-screens-landscape {
+          width: 100%;
+        }
+
+        @include small-screens {
+          width: 100%;
+        }
+      }
+      &.user-type, &.phone-number {
+        width: 38.5%;
+        @include small-screens-landscape {
+          width: 100%;
+        }
+        @include small-screens {
+          width: 100%;
+        }
+        &.full-width {
+          width: 100%;
+        }
+      }
+      &.input-textarea {
+        .skkiper-textarea {
+          width: 100%;
+          border-color: $Lgrey5;
+          border-radius: 8px;
+          @include padding(20px);
+          @include font-size(16px);
+          font-family: $MFont;
+          font-weight: bold;
+          &::placeholder {
+            font-family: $RFont;
+            font-weight: 500;
+          }
+          &.ng-touched {
+            &.ng-invalid {
+              border-color: $mainRed;
+            }
+          }
+        }
+      }
+    }
+    .double-input-line, .mobile-double-input-line {
+      @include display-flex(space-between, flex-start, row-reverse);
+      ::ng-deep {
+        mat-form-field {
+          width: 100%;
+
+          .mat-form-field-wrapper {
+            margin-bottom: 10px;
+          }
+          .mat-form-field-infix {
+            height: 62px;
+          }
+
+          .mat-select-value {
+            @include font-size(16px);
+          }
+        }
+      }
+
+      &.contact-us-form {
+        flex-direction: row;
+      }
+
+      @include small-screens-landscape {
+        flex-direction: column;
+        &.contact-us-form {
+          flex-direction: column;
+        }
+        .input-wrapper {
+          &.phone-number {
+            width: 100%;
+          }
+        }
+      }
+
+      @include small-screens {
+        flex-direction: column;
+        &.contact-us-form {
+          flex-direction: column;
+        }
+        .input-wrapper {
+          &.phone-number {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .mobile-double-input-line {
+      display: flex;
+      flex-direction: column-reverse;
+      ::ng-deep {
+        mat-form-field {
+          .mat-form-field-infix {
+            height: 48px;
+          }
+        }
+      }
+    }
+    .btn-wrapper {
+      @include display-flex(flex-end, center);
+      margin-top: 2em;
+
+      .btn {
+        &.skkiper-btn {
+          @include font-size(18px);
+          height: 52px;
+          width: 265.33px;
+          border-radius: 8px;
+          box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.1);
+          @include small-screens {
+            width: 100%;
+            @include font-size(14px);
+          }
+        }
+      }
+      &.small-version {
+        justify-content: unset;
+        margin: 0;
+        .btn {
+          &.skkiper-btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// mobile dashboards
+@mixin mobile-dashboard-wrapper() {
+  @include small-screens {
+    @include display-flex(flex-start, center, column);
+    padding-top: $dashboardMobileHeaderPadding;
+    height: calc(100vh);
+    .listing-total {
+      width: 100%;
+      margin: 20px 0;
+    }
+  }
+}
+
+// business report
+
+@mixin report-box($width: 100%, $maxWidth: 570px) {
+  width: $width;
+  max-width: $maxWidth;
+  padding: 1em 2em;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 3px 16px 0 rgba(0,0,0,0.06);
+}

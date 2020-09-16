@@ -1,0 +1,64 @@
+::ng-deep .mat-snack-bar-container {
+  background-color: transparent;
+
+  .error-message, .warning-message, .success-message {
+    height: max-content;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    background-color: white;
+
+    .error, .warning, .success {
+      mat-icon {
+        padding: 0 2px 0 0;
+        border-radius: 3px;
+        margin-right: 10px;
+        display: block;
+      }
+    }
+
+    .error {
+      color: #FF5B66;
+
+      mat-icon {
+        color: #FF5B66;
+        background-color: #FFDBDD;
+      }
+    }
+
+    .warning {
+      color: #FFA651;
+
+      mat-icon {
+        color: #FFA651;
+        background-color: #FEF4E6;
+      }
+    }
+
+    .success {
+      color: #5DA9E9;
+
+      mat-icon {
+        color: #5DA9E9;
+        background-color: #EBF7FF;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-snack-bar-container {
+  box-shadow: unset;
+}
+
+::ng-deep .error-message {
+  border: 1px solid #FF5B66;
+}
+
+::ng-deep .warning-message {
+  border: 1px solid #FFA651;
+}
+
+::ng-deep .success-message {
+  border: 1px solid #5DA9E9;
+}

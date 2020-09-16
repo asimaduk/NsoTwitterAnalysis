@@ -1,0 +1,227 @@
+// // @import "../../../../styles/partials/mixin";
+
+// .login-popup-wrapper {
+//   @include display-flex(unset, unset, column);
+//   .login-nav {
+//     @include display-flex(flex-end, center);
+//     //@include small-screens
+//    @media screen and (max-width: 768px){
+//       flex-direction: row-reverse;
+//       justify-content: space-between;
+//       margin-top: 3em;
+//     }
+//     .intro {
+//       color: $Lblue2;
+//       font-family: $MFont;
+//       @include font-size(12px);
+//       font-weight: bold;
+//       margin: 0;
+//       span {
+//         opacity: 0.3;
+//       }
+//       a {
+//         color: $mainBlue;
+//         font-weight: 500;
+//         margin: 0 10px;
+//         &:hover {
+//           cursor: pointer;
+//         }
+//       }
+//     }
+//     .closeX {
+//       @include font-size(25px);
+//       color: $Lgrey4;
+//       &:hover {
+//         cursor: pointer;
+//       }
+//     }
+//   }
+//   .login-inner-wrapper {
+//     padding: 5px 0;
+//     @include display-flex(unset, unset, column);
+//     h3 {
+//       font-weight: 700;
+//       margin-top: 25px;
+//     }
+//     .intro {
+//       @include font-size(14px);
+//       color: $Grey1;
+//       font-weight: 700;
+//     }
+//     .login-buttons {
+//       @include display-flex(space-between, center);
+//       margin-bottom: 15px;
+//       .login-btn {
+//         @include display-flex(unset, center);
+//         width: 48.5%;
+//         color: #fff;
+//         font-weight: bold;
+//         font-family: $MFont;
+//         padding: 0;
+//         .icon {
+//           @include display-flex(center, center);
+//           width: 20%;
+//           font-size: 20px;
+//           @include small-screens {
+//             width: 30%;
+//           }
+//         }
+//         .btn-text {
+//           @include display-flex(center, center);
+//           width: 80%;
+//           padding: 10px 5px 5px;
+//           border-left: 1px solid;
+//         }
+//         &.google {
+//           background-color: $blue2;
+//           .btn-text {
+//             border-color: #4387F0;
+//           }
+//         }
+//         &.linkedin {
+//           background-color: $blue3;
+//           .btn-text {
+//             border-color: #044D75;
+//           }
+//         }
+//       }
+//     }
+//     .divider {
+//       @include display-flex(space-between, center);
+//       margin: 15px 0;
+//       color: $Lgrey4;
+//       .divider-border {
+//         width: 33%;
+//         border-bottom: 1px solid #DADADA;
+//       }
+//     }
+//     .login-form {
+//       .input-wrapper {
+//         margin-bottom: 20px;
+//         @include display-flex(unset, center);
+//         input {
+//           width: 100%;
+//           height: 48px;
+//           border: 1px solid $Lgrey5;
+//           border-radius: 6px;
+//           padding: 0 20px;
+//         }
+//         &.invalid {
+//           @include display-flex(unset, unset, column);
+//           min-height: 90px;
+//           margin-bottom: 0;
+//         }
+//         &.two-in-row {
+//           @include display-flex(space-between, center);
+//           @include small-screens {
+//             flex-direction: column;
+//           }
+//           .input-child-wrapper {
+//             @include display-flex(unset, unset, column);
+//             width: 48%;
+//             @include small-screens {
+//               width: 100%;
+//               margin-bottom: 20px;
+//             }
+//           }
+//           &.invalid {
+//             flex-direction: row;
+//             align-items: flex-start;
+//           }
+//         }
+//       }
+//       .terms-wrapper {
+//         display: flex;
+//         margin-bottom: 10px;
+//         mat-checkbox {
+//           margin-top: 2px;
+//           height: 0;
+//         }
+//         .agree {
+//           padding-left: 10px;
+//           font-weight: 500;
+//           cursor: pointer;
+//           color: $mainBlue
+//         }
+//       }
+//       .login-btn-wrapper {
+//         @include display-flex(center, flex-end, column);
+//         .forgot-password {
+//           color: $Lblue2;
+//           opacity: 0.3;
+//           font-weight: bold;
+//           &:hover {
+//             cursor: pointer;
+//           }
+//         }
+//         .btn {
+//           &.log-in {
+//             width: 100%;
+//             max-width: 200px;
+//             background-color: $mainBlue;
+//             color: #fff;
+//             font-weight: bold;
+//             @include small-screens {
+//               max-width: 100%;
+//             }
+//           }
+//         }
+//       }
+//       .invalid-error {
+//         width: 100%;
+//         margin: 10px 0;
+//         text-align: right;
+//         color: $mainRed;
+//       }
+//     }
+
+//     .forgot-form {
+      
+//     }
+//     .reset-form {
+//       .input-wrapper {
+//         margin-bottom: 20px;
+//         @include display-flex(unset, stretch, column);
+//         // align-items: flex-start;
+//         > div {
+//           margin-bottom: 20px;
+//         }
+//       }
+//     }
+//     .response {
+//       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+//       border-radius: 4px;
+//       font-family: $MFont;
+//       &.user-found {
+//         border: 1px solid #5DA9E9;
+//         color: #5DA9E9;
+//         .check {
+//           background: #EBF7FF;
+//         }
+//       }
+//       &.user-not-found {
+//         border: 1px solid $mainRed;
+//         color: $mainRed;
+//         .check {
+//           background: #ffd7d7;
+//         }
+//       }
+//       .content {
+//         display: flex;
+//         align-content: space-between;
+//         align-items: center;
+//         padding: 14px;
+//         .check {
+//           border-radius: 4px;
+//           i {
+//             padding: 4px;
+//           }
+//         }
+//         .text {
+//           margin-left: 6px;
+//         }
+//       }
+//     }
+//   }
+// }
+

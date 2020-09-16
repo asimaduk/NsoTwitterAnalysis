@@ -1,0 +1,165 @@
+<div class="login-popup-wrapper">
+  <div class="login-nav">
+    <p class="intro">
+      <span> {{ (modeLabel.navText)}} </span>
+      <a href="javascript:;" *ngIf="mode !== modes.forgotPassword" (click)="toggleSignUp()">{{ mode === modes.login ? 'Sign Up' : 'Log In'}}</a>
+      <a href="javascript:;" *ngIf="mode === modes.forgotPassword" (click)="mode = modes.login">{{ mode === modes.login ? 'Sign Up' : 'Log In'}}</a>
+    </p>
+    <i class="closeX skkiper-icon skkiper-icon-cross" aria-hidden="true" (click)="closeLogin()"></i>
+  </div>
+  <div class="login-inner-wrapper">
+
+    <h3>{{ modeLabel.title }}</h3>
+        <p *ngIf="mode === modes.login || mode == modes.signup" class="intro">{{ modeLabel.title }} with your social network</p>
+       <div class="login-buttons" *ngIf="mode === modes.login || mode === modes.signup">
+         <button class="btn login-btn google" (click)="signInWithGoogle()">
+           <span class="icon">
+             <i class="skkiper-icon skkiper-icon-google" aria-hidden="true"></i>
+           </span>
+           <span class="btn-text">Google</span>
+         </button>
+         <button class="btn login-btn linkedin" (click)="signInWithLinkedin()">
+           <span class="icon">
+             <i class="skkiper-icon skkiper-icon-linkedin2" aria-hidden="true"></i>
+           </span>
+           <span class="btn-text">Linkedin</span>
+         </button>
+       </div>
+       <div class="divider" *ngIf="mode === modes.login || mode === modes.signup">
+         <span class="divider-border"></span>
+         <span>Or</span>
+         <span class="divider-border"></span>
+       </div>
+       <p class="intro" [innerHtml]="modeLabel.intro"> </p> 
+
+    <!-- Login -->
+    <div class="login-form login-form" *ngIf="mode === modes.login">
+      <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+        <div class="input-wrapper">
+          <input type="email" placeholder="Email Address" formControlName="loginEmail">
+        </div>
+        <div class="input-wrapper">
+          <input type="password" placeholder="Password" formControlName="loginPassword">
+        </div>
+        <div class="login-btn-wrapper">
+          <p class="forgot-password" (click)="forgotPassword()">Forgot your password?</p>
+          <button *ngIf="!processing" type="submit" class="btn log-in">
+            {{'Log In'}}
+          </button>
+          <button [disabled]="processing" *ngIf="processing" type="submit" class="btn log-in">
+            {{'Please wait...'}}
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- Sign Up -->
+    <div class="login-form signup-form" *ngIf="mode === modes.signup">
+      <form [formGroup]="signupForm" (ngSubmit)="signupSubmit()">
+        <div class="input-wrapper two-in-row" [ngClass]="{'invalid': signupSubmitted  &&
+             fc.firstName.touched && fc.firstName.invalid || signupSubmitted &&
+             fc.lastName.touched && fc.lastName.invalid}">
+          <div class="input-child-wrapper">
+            <input type="text" placeholder="First Name" formControlName="firstName">
+            <div *ngIf="signupSubmitted && fc.firstName.touched && fc.firstName.invalid" class="invalid-error">
+              <div *ngIf="fc.firstName.errors.required">First Name is required.</div>
+            </div>
+          </div>
+          <div class="input-child-wrapper">
+            <input type="text" placeholder="Last Name" formControlName="lastName">
+            <div *ngIf="signupSubmitted && fc.lastName.touched && fc.lastName.invalid" class="invalid-error">
+              <div *ngIf="fc.lastName.errors.required">Last Name is required.</div>
+            </div>
+          </div>
+        </div>
+        <div class="input-wrapper" [ngClass]="{'invalid': signupSubmitted && fc.email.touched && fc.email.invalid}">
+          <input type="email" placeholder="Email Address" formControlName="email">
+          <div *ngIf="signupSubmitted && fc.email.touched && fc.email.invalid" class="invalid-error">
+            <div *ngIf="fc.email.errors.required">Email is required.</div>
+            <div *ngIf="fc.email.errors.email">Please, enter valid email address.</div>
+          </div>
+        </div>
+        <div class="input-wrapper two-in-row" [ngClass]="{'invalid': signupSubmitted && fc.password.touched && fc.password.errors ||
+             signupSubmitted && fc.confirmPassword.errors}">
+          <div class="input-child-wrapper">
+            <input type="password" placeholder="Password" formControlName="password">
+            <div *ngIf="signupSubmitted && fc.password.touched && fc.password.errors" class="invalid-error">
+              <div *ngIf="fc.password.errors.required">Password is required.</div>
+              <div *ngIf="fc.password.errors.minlength">Password must be at least 6 characters.</div>
+            </div>
+          </div>
+          <div class="input-child-wrapper">
+            <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+            <div *ngIf="signupSubmitted && fc.confirmPassword.errors" class="invalid-error">
+              <div *ngIf="fc.confirmPassword.errors.required">Confirm Password is required.</div>
+              <div *ngIf="fc.confirmPassword.errors.mustMatch">Passwords must match.</div>
+            </div>
+          </div>
+        </div>
+        <div class="terms-wrapper">
+          <mat-checkbox (click)="termsAndConditionsAgree()"></mat-checkbox>
+          <label class="agree" (click)="gotoTermsPage()">I agree to the terms and conditions</label>
+        </div>
+        <div class="login-btn-wrapper">
+          <!-- <p class="forgot-password" (click)="forgotPassword()">Forgot your password?</p> -->
+          <button type="submit" class="btn log-in" [disabled]="!this.termsAgreed">
+            {{'Create Account'}}
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Forgot Password -->
+    <div class="login-form forgot-form" *ngIf="mode === modes.forgotPassword">
+      <form [formGroup]="forgotForm" (ngSubmit)="forgotFormSubmit()">
+        <div class="input-wrapper">
+          <input type="email" placeholder="Email Address" formControlName="email">
+        </div>
+        <div class="login-btn-wrapper" *ngIf="!userFoundClass">
+          <button type="submit" class="btn log-in" [disabled]="!forgotForm.valid">
+            {{'Reset Password'}}
+          </button>
+        </div>
+      </form>
+      <div class="response" [ngClass]="userFoundClass" *ngIf="userFoundClass">
+        <div class="content">
+          <div class="check"><i class="skkiper-icon skkiper-icon-check"></i></div>
+          <div class="text">{{userFoundText}}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reset Password -->
+    <div class="login-form reset-form" *ngIf="mode === modes.resetPassword">
+      <form [formGroup]="resetPasswordForm" (ngSubmit)="resetPasswordFormSubmit()">
+        <div class="input-wrapper" [ngClass]="{'invalid': signupSubmitted && fc.password.touched && fc.password.errors ||
+             signupSubmitted && fc.confirmPassword.errors}">
+          <div class="">
+            <input type="password" placeholder="Password" formControlName="newPassword">
+            <div *ngIf="signupSubmitted && fc.password.touched && fc.password.errors" class="invalid-error">
+              <div *ngIf="fc.password.errors.required">Password is required.</div>
+              <div *ngIf="fc.password.errors.minlength">Password must be at least 6 characters.</div>
+            </div>
+          </div>
+          <div class="">
+            <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+            <div *ngIf="signupSubmitted && fc.confirmPassword.errors" class="invalid-error">
+              <div *ngIf="fc.confirmPassword.errors.required">Confirm Password is required.</div>
+              <div *ngIf="fc.confirmPassword.errors.mustMatch">Passwords must match.</div>
+            </div>
+          </div>
+        </div>
+        <div class="login-btn-wrapper" *ngIf="!passwordChanged">
+          <button type="submit" class="btn log-in" [disabled]="!resetPasswordForm.valid">
+            {{'Change Password'}}
+          </button>
+        </div>
+      </form>
+      <div class="response user-found" *ngIf="passwordChanged">
+        <div class="content">
+          <div class="check"><i class="skkiper-icon skkiper-icon-check"></i></div>
+          <div class="text">Password changed successfully</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

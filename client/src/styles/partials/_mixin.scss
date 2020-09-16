@@ -1,0 +1,184 @@
+/* general mixin */
+@import "~rfs/scss";
+@import "variables";
+
+// The font-size mixin is a shorthand which calls
+// @include rfs(4rem, font-size);
+
+// Other shorthand mixins that are available are:
+// @include padding(4rem);
+// @include padding-top(4rem);
+// @include padding-right(4rem);
+// @include padding-bottom(4rem);
+// @include padding-left(4rem);
+// @include margin(4rem);
+// @include margin-top(4rem);
+// @include margin-right(4rem);
+// @include margin-bottom(4rem);
+// @include margin-left(4rem);
+
+// For properties which do not have a shorthand, the property can be passed:
+// @include rfs(4rem, border-radius);
+
+// Whenever a value contains a space, it should be escaped with `#{}`:
+// @include rfs(0 0 4rem red #{","} 0 0 5rem blue, box-shadow);
+
+// Custom properties (css variables):
+// @include rfs(4rem, --border-radius);
+
+// for more info: https://github.com/twbs/rfs
+
+/* truncate to shorten text */
+@mixin truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin truncateMultiLine($maxWidth:unset,$lineClamp: 2, $lineHeight: 1.5em) {
+  display: block;
+  display: -webkit-box;
+  max-width: $maxWidth;
+  -webkit-line-clamp: $lineClamp;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2em;
+}
+
+/* display flex */
+@mixin display-flex($justify, $alignItems, $direction:row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $alignItems;
+  flex-direction: $direction;
+}
+
+@mixin display-grid($numberOfColumns: 1, $numberOfRows: 1, $gridColumnGap: 0, $gridRowGap: 0) {
+  display: grid;
+  grid-template-columns: repeat(#{$numberOfColumns}, 1fr);
+  grid-template-rows: repeat(#{$numberOfRows}, 1fr);
+  grid-column-gap: $gridColumnGap;
+  grid-row-gap: $gridRowGap;
+}
+
+@mixin position-absolute-center($top: unset, $bottom: unset ) {
+  position: absolute;
+  top: $top;
+  bottom: $bottom;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* media queries for retina displays */
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+  only screen and (-o-min-device-pixel-ratio: 13/10),
+  only screen and (min-resolution: 120dpi) {
+    @content;
+  }
+}
+
+/* media queries for screen size 1280 */
+@mixin large-laptop-screens() {
+  @media(min-width: 1440px) and (max-width: 1919px) {
+    @content;
+  }
+}
+
+/* media queries for screen size 1280 */
+@mixin medium-laptop-screens() {
+  @media(min-width: 1280px) and (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin tablet-view-screens() {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin ipad-landscape() {
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin ipad-portrait() {
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+/* media queries for not web screen sizes */
+@mixin small-screens() {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin small-screens-landscape() {
+  @media only screen and (min-device-width: 300px) and (max-device-width: 812px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin skkiper-global-input() {
+  font-family: $RFont;
+  font-weight: 500;
+  box-sizing: border-box;
+  height: 48px;
+  border: 1px solid $Lgrey5;
+  border-radius: 6px;
+  background-color: transparent;
+}
+
+@mixin skkiper-box-container($min-height:250px, $padding: 10px) {
+  padding: $padding;
+  background-color: #fff;
+  border: 0;
+  border-radius: 6px;
+  min-height: $min-height;
+  box-shadow: $skkiper-box-shadow;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@mixin display-grid-two-columns($templateColumn: 49.5% 49.5%, $gap: 20px) {
+  display: grid;
+  grid-template-columns: $templateColumn;
+  grid-column-gap: $gap;
+  grid-row-gap: $gap;
+}
+
+@mixin round-button($size: 24px, $color: $Lblue2) {
+  @include display-flex(center, center);
+  width: $size;
+  height: $size;
+  color: $color;
+  background-color: transparent;
+  border: 1px solid $color;
+  border-radius: 50%;
+  padding: 0;
+}
+
+@mixin field-title() {
+  margin: 0 25px 0 0;
+  color: $Grey1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+@mixin skkiper-container($marginTop: 0, $marginBottom: 0) {
+  width: 75%;
+  max-width: 1440px;
+  margin: $marginTop auto $marginBottom;
+  @include small-screens {
+    width: 100%;
+    max-width: unset;
+  }
+}
