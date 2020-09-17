@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path: 'query',
     // canActivate: [AuthenticationActivateGuard],
-    component: QueryComponent
+    // component: QueryComponent
+    loadChildren: () => import('./modules/query/query.module').then(m => m.QueryModule)
   },
   {
     path: 'groups',

@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 // import { HTTP_INTERCEPTORS } from "@angular/common/http";
 // import { NavigationModule } from "./modules/navigation/navigation.module";
+import {SharedModule} from './modules/shared/shared.module';
 import { HttpClientModule } from "@angular/common/http";
 // import { DeviceDetectorService } from "ngx-device-detector";
 // import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, LinkedinLoginProvider } from "angular-6-social-login-v2";
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     // NavigationModule,
+    SharedModule,
     HttpClientModule,
     // DeviceDetectorService
     CommonModule,

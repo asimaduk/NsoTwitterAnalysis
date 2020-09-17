@@ -1,4 +1,3 @@
-// import {InteractionContentComponent} from './../deal/deal-interactions/interaction-content/interaction-content.component';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoaderComponent} from "./components/loader/loader.component";
@@ -28,6 +27,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSelectModule} from "@angular/material/select";
 import {LoginModule} from '../login/login.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   imports: [
@@ -39,7 +39,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     Ng5SliderModule, MatDialogModule, MatSelectModule, MatIconModule, MatTableModule, MatTooltipModule,
     FormsModule, ReactiveFormsModule, LoginModule,
     AgGridModule.withComponents([]),
-    MatSnackBarModule
+    MatSnackBarModule, MatGridListModule
   ],
 
   declarations: [
@@ -61,7 +61,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FileUploadModule, ConfirmDialogModule,
     DropdownModule, AutoCompleteModule,
     // Ng4LoadingSpinnerModule,
-    ProgressSpinnerModule, AgGridModule, TooltipModule,
+    ProgressSpinnerModule, AgGridModule, TooltipModule, MatGridListModule
   ],
   entryComponents: [
     ErrorMessageComponent
