@@ -1,5 +1,5 @@
 <div class="query-container">
-    <mat-grid-list gutterSize="20px" cols="12">
+    <mat-grid-list gutterSize="20px" cols="12" rowHeight="fit">
         <mat-grid-tile class="side-pane" colspan="3">
             <div class="queries-history">
                 <h4>Queries</h4>
@@ -35,27 +35,37 @@
         </mat-grid-tile>
         
         <mat-grid-tile class="main-pane" colspan="9">
-            <div class="internalMatGrid">
-                <mat-grid-list gutterSize="20px" cols="12">
-                    <mat-grid-tile class="list-pane" colspan="8"></mat-grid-tile>
-                    <mat-grid-tile class="info-pane" colspan="4">
-                        <div class="recent-queries">
-                            <h4>Recent Queries</h4>
-                            <ul>
-                                <li>
-                                    <span><b>17/09/2020 12:44 </b> <a href="http://">Adam</a> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500</span>
-                                    <a href="http://"><mat-icon class="right-icon" aria-hidden="false" aria-label="">arrow_right_alt</mat-icon></a>
-                                </li>
-                                <li>
-                                    <span> <b>10/03/2019 23:04 </b> <a href="http://">Bar Stein</a> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</span>
-                                    <a href="http://"><mat-icon class="right-icon" aria-hidden="false" aria-label="">arrow_right_alt</mat-icon></a>
-                                </li>
-                            </ul>
+            <mat-grid-list gutterSize="20px" cols="12" rowHeight="fit">
+                <mat-grid-tile class="list-pane" colspan="8">
+                    <div class="current-query">
+                        <h4>Current Query</h4>
+                        <span>
+                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum 
+                        </span>
+                        <hr/>
+                        <div class="actions">
+                            <mat-icon aria-hidden="false" aria-label="">edit</mat-icon>
+                            <mat-icon aria-hidden="false" aria-label="">save</mat-icon>
                         </div>
-                    </mat-grid-tile>
-                </mat-grid-list>
-            </div>
+                    </div>
+
+                </mat-grid-tile>
+                <mat-grid-tile class="info-pane" colspan="4">
+                    <div class="recent-queries">
+                        <h4>Recent Queries</h4>
+                        <ul>
+                            <li>
+                                <span><b>17/09/2020 12:44 </b> <a href="http://">Adam</a> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500</span>
+                                <a href="http://"><mat-icon class="right-icon" aria-hidden="false" aria-label="">arrow_right_alt</mat-icon></a>
+                            </li>
+                            <li>
+                                <span> <b>10/03/2019 23:04 </b> <a href="http://">Bar Stein</a> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</span>
+                                <a href="http://"><mat-icon class="right-icon" aria-hidden="false" aria-label="">arrow_right_alt</mat-icon></a>
+                            </li>
+                        </ul>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
         </mat-grid-tile>
     </mat-grid-list>
-    <div class="b"></div>
 </div>
